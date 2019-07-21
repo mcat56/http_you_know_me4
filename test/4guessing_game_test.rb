@@ -16,26 +16,30 @@ class GuessingGameTest < Minitest::Test
   end
 
   def test_it_guess_with_form_data
+    # Stuck on this one? Look at the "Reading the Request Body" section of the README
+
     url = 'http://localhost:9292/game'
     response = Faraday.post(url, guess: 50)
     expected = response.body.include?('too high') || response.body.include?('too low') || response.body.include?('correct!')
     assert expected
   end
 
-  def test_it_can_change_the_answer_with_a_patch_request
+  def test_it_can_change_the_answer_with_a_post_request
+    url = 'http://localhost:9292/game/answer'
+    Faraday.post(url, answer: 50)
+
     url = 'http://localhost:9292/game'
-    Faraday.patch(url, answer: 50)
     response = Faraday.post(url, guess: 50)
     assert response.body.include? "correct!"
   end
 
   def test_it_can_cheat
-    url = 'http://localhost:9292/game'
-    Faraday.patch(url, answer: 50)
+    url = 'http://localhost:9292/game/answer'
+    Faraday.post(url, answer: 50)
     response = Faraday.get 'http://localhost:9292/game/answer'
     assert response.body.include? "The answer is 50"
 
-    Faraday.patch(url, answer: 49)
+    Faraday.post(url, answer: 49)
     response = Faraday.get 'http://localhost:9292/game/answer'
     assert response.body.include? "The answer is 49"
   end
