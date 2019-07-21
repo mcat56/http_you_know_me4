@@ -4,6 +4,8 @@ This is a challenge intended to test your understanding of HTTP.
 
 ## Instructions
 
+Clone this repository.
+
 There is a file called `server.rb` in the `lib` directory that contains code from the [HTTP Tutorial](https://backend.turing.io/module2/lessons/http_yykm_1). Run that file with `ruby <path to file>`. This will start a server which will listen for requests. Your terminal should print out "Waiting for Request..." and then hang.
 
 Next, open up a new terminal. You can open up a new terminal window with the `cmd + n` shortcut for terminal, or open up a new terminal tab in the same window with the `cmd + t` shortcut. Run the `1response_test.rb` file located in the `test` directory. You should have passing tests!
