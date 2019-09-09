@@ -76,7 +76,7 @@ You can use this html snippet to generate all the html elements a user would nee
 
 #### Reading the Request Body
 
-In HTTP requests, post data appears in the **body** of the request after the headers. A blank line indicates the end of the headers and the beginning of the body. If you look at the `read_request` method included in this repo, we stop reading the request once we hit that first blank line.
+In HTTP requests, post data appears in the **body** of the request after the headers. A blank line indicates the end of the headers and the beginning of the body. If you look at the lines of code for reading the request included in this repo, we stop reading the request once we hit that first blank line.
 
 In order to read more data from the client, you can use the `read` method like so:
 
