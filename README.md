@@ -86,7 +86,13 @@ pry(main)> connection.read(1)
 
 The argument (in this case `1`) indicates how many characters you want to read. A client will indicate exactly how many characters are in the body with a header called `Content-Length`.
 
-## Challenge 4: Cookies
+## Challenge 4: Redirects
+
+When a user guesses a correct answer, rather than responding with a 200 status, redirect them to `/congratulations` that displays a special congratulations message.
+
+For more information, see [this](https://www.httpwatch.com/httpgallery/redirection/)
+
+## Challenge 5: Cookies
 
 We'll now add a feature to our guessing game where it can keep track of a user's high score. One place we can store a user's current high score is in their cookies.
 
@@ -100,9 +106,3 @@ Follow these guidelines for this challenge:
 * Once a user guesses a correct answer for the first time, a cookie called `high_score` should be set
 * When a user guesses the correct answer again, they should be told whether or not they beat their high score.
 * When a user makes an incorrect guess, they should be told what their current high score is (if they have one)
-
-## Challenge 5: Redirects
-
-When a user guesses a correct answer, rather than responding with a 200 status, redirect them to `/congratulations` that displays a special congratulations message.
-
-For more information, see [this](https://www.httpwatch.com/httpgallery/redirection/)
