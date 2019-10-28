@@ -24,8 +24,23 @@ loop do
 
   # Generate the Response
   puts "Sending response."
-  output = "<html>Hello from the Server side!</html>"
-  status = "http/1.1 200 ok"
+
+  if request_lines[0].split[0] == 'GET'
+    output = "<html>Hello</html>"
+    status = 'http/1.1 200 ok'
+  elsif request_lines[0].split[0] == 'POST'
+    output = "<html>post</html>"
+    status = '202'
+  elsif request_lines[0].split[0] == 'PATCH'
+    output = "<html>patch</html>"
+    status = '405'
+  elsif request_lines[0].split[0] == 'DELETE'
+    output = "<html>delete</html>"
+    status = '401'
+  end
+
+
+
   response = status + "\r\n" + "\r\n" + output
 
   # Send the Response
